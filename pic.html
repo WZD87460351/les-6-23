@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pic</title>
+    <script>
+        window.onload = function(){
+            var arr = document.getElementsByTagName('a');
+            var image = document.getElementsByTagName('img')[0];
+            for(var i = 0;i < arr.length;i++){
+                arr[i].onclick = function(){
+                    var hre = this.getAttribute('href');
+                    image.setAttribute('src',hre);
+                    return false;
+                    
+                }
+            }
+            
+           
+        }
+    </script>
+</head>
+<body>
+    <a href="images/specialpage2.jpg">1</a>
+    <a href="images/specialpage3.jpg">2</a>
+    <a href="images/specialpage4.jpg">3</a>
+
+    <img src="images/specialpage1.jpg" alt="" id="pic">
+</body>
+</html>

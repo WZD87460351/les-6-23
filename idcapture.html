@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>idcapture</title>
+    <style>
+        #list{
+            height: 110px;
+            width: 100px;
+            background: red;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+//            var ocone = document.getElementsByClassName('one');
+//            var oilist = document.getElementById('list');
+//            alert(Array.isArray(oilist));
+            
+            var oul = document.getElementsByTagName('ul')[0];
+            
+           /* var oli = oul.getElementsByTagName('*');
+            var results = new Array();
+            for(var i = 0;i < oli.length;i++){
+                if(oli[i].className.indexOf('test') != -1){
+                    results[results.length] = oli[i];
+                }
+            }
+            alert(results.length);*/
+            
+            var oul = document.getElementsByTagName('ul')[0];
+            function getClassName(node,claname){
+                //如果支持getElementsByClassName
+                if(node.getElementsByClassName){
+                    return node.getElementsByClassName(claname);
+                }
+                
+                var results = new Array();
+                var els = node.getElementsByTagName('*');
+                for(var i = 0;i < els.length;i++){
+                    if(els[i].className.indexOf(claname) != -1){
+                        results[results.length] = els[i];
+                    }
+                }
+                return results;
+            }
+            var func = getClassName(oul,'test');
+            alert(func.length);
+            
+            
+            var ptitle = document.getElementsByTagName('p')[0];
+            var p_title = ptitle.getAttribute('title');
+            alert(p_title);
+            
+//            document.onclick = function(){
+//                ptitle.setAttribute('title','changed');
+//            }
+            
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li class="one" id="list">2</li>
+        <li class="one test" id="list">3</li>
+        <li class="one test" id="list">4</li>
+    </ul>
+    <ul></ul>
+    <p title="hhh">你好</p>
+</body>
+</html>

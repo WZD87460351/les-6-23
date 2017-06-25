@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chidnode</title>
+    <script>
+        //UL.childNodes 返回所有节点 元素节点nodeType =1，属性节点nodeType =2，文本节点nodeType =3；
+        //使用children 仅返回元素节点
+        window.onload = function(){
+            var UL = document.getElementsByTagName('ul')[0];
+            
+            alert(UL.children.length);
+            for(var j = 0;j <UL.children.length;j++){
+                UL.children[j].style.background = 'green';
+            }
+            
+                alert(UL.childNodes[1].nodeType);
+            /*for(var i = 0;i < UL.childNodes.length;i++){
+                if(UL.childNodes[i].nodeType == 1){
+                    UL.childNodes[i].style.background = 'tomato';
+                }
+            }*/
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>3</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>creatnodes</title>
+	<script>
+		window.onload = function(){
+			var oul = document.getElementById('ul');
+			var ali = oul.getElementsByTagName('li');
+			var obtn = document.getElementById('btn');
+			var inp = document.getElementById('inp')
+			obtn.onclick = function(){
+				var oli = document.createElement('li');
+				oli.innerText = inp.value;
+				inp.value = '';
+				
+				if(ali.length > 0){
+					oul.insertBefore(oli,ali[0]);
+				}else{
+					oul.appendChild(oli);
+				}
+					
+			}
+			
+			var second = document.getElementById('second');
+			var oa = second.getElementsByTagName('a');
+			for(var j = 0;j < oa.length;j++){
+				oa[j].onclick= function(){
+					second.removeChild(this.parentNode);
+					return false;//可以兼容ie
+				}
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="inp">
+	<button id="btn">click</button>
+	
+	<ul id="ul">
+<!--
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+-->
+	</ul>
+	
+	
+	<ul id="second">
+		<li>www<a href="javascript:0">delete</a></li>
+		<li>wwwddd<a href="javascript:0">delete</a></li>
+		<li>wwwdddffff<a href="javascript:0">delete</a></li>
+		<li>wwwdddffffggggg<a href="javascript:0">delete</a></li>
+	</ul>
+</body>
+</html>
